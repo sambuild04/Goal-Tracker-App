@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72014B9DE0041CA69495CD0A /* Pods_Goal_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5D322DAEA5E381107372EE /* Pods_Goal_Tracker.framework */; };
+		7B066F9822DB2D4400166091 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B066F9722DB2D4400166091 /* DateHeader.swift */; };
+		7B3F8C4722DF07FA009F5DBE /* DateRangePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F8C4622DF07FA009F5DBE /* DateRangePickerTableViewCell.swift */; };
+		7B4B15A322D868A20093423F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4B15A222D868A20093423F /* CalendarViewController.swift */; };
+		7B4B15A922D8E5570093423F /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4B15A822D8E5570093423F /* DateCell.swift */; };
+		7B73B43922AC49EC00C47882 /* NewIdeaCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B73B43822AC49EC00C47882 /* NewIdeaCreation.swift */; };
+		7B8BDE3422C9F58E0081DE09 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8BDE3322C9F58E0081DE09 /* SwipeTableViewController.swift */; };
+		7BBA466922E16C7900A5BF46 /* CalendarSelectionViewModelContrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA466822E16C7900A5BF46 /* CalendarSelectionViewModelContrast.swift */; };
+		7BBA466B22E16D2000A5BF46 /* CalendarHandlerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA466A22E16D2000A5BF46 /* CalendarHandlerViewModel.swift */; };
+		7BBA466D22E16EA300A5BF46 /* DateFormatter Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA466C22E16EA300A5BF46 /* DateFormatter Extension.swift */; };
+		7BC2C7A7229CC3CF005F2C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2C7A6229CC3CF005F2C92 /* AppDelegate.swift */; };
+		7BC2C7A9229CC3CF005F2C92 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2C7A8229CC3CF005F2C92 /* FirstViewController.swift */; };
+		7BC2C7AB229CC3CF005F2C92 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2C7AA229CC3CF005F2C92 /* SecondViewController.swift */; };
+		7BC2C7AE229CC3CF005F2C92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC2C7AC229CC3CF005F2C92 /* Main.storyboard */; };
+		7BC2C7B0229CC3D3005F2C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC2C7AF229CC3D3005F2C92 /* Assets.xcassets */; };
+		7BC2C7B3229CC3D3005F2C92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC2C7B1229CC3D3005F2C92 /* LaunchScreen.storyboard */; };
+		7BC2C7BD229CC4D9005F2C92 /* CellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2C7BC229CC4D9005F2C92 /* CellViewController.swift */; };
+		7BC2C7BF229CD84E005F2C92 /* item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2C7BE229CD84E005F2C92 /* item.swift */; };
+		7BE33B8822D44630001EADC7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE33B8622D44630001EADC7 /* CollectionViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5C5D322DAEA5E381107372EE /* Pods_Goal_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Goal_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B066F9722DB2D4400166091 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
+		7B3F8C4622DF07FA009F5DBE /* DateRangePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerTableViewCell.swift; sourceTree = "<group>"; };
+		7B4B15A222D868A20093423F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		7B4B15A822D8E5570093423F /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		7B73B43822AC49EC00C47882 /* NewIdeaCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIdeaCreation.swift; sourceTree = "<group>"; };
+		7B8BDE3322C9F58E0081DE09 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		7BBA466822E16C7900A5BF46 /* CalendarSelectionViewModelContrast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelectionViewModelContrast.swift; sourceTree = "<group>"; };
+		7BBA466A22E16D2000A5BF46 /* CalendarHandlerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHandlerViewModel.swift; sourceTree = "<group>"; };
+		7BBA466C22E16EA300A5BF46 /* DateFormatter Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter Extension.swift"; sourceTree = "<group>"; };
+		7BC2C7A3229CC3CF005F2C92 /* Goal Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goal Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC2C7A6229CC3CF005F2C92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7BC2C7A8229CC3CF005F2C92 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		7BC2C7AA229CC3CF005F2C92 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		7BC2C7AD229CC3CF005F2C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7BC2C7AF229CC3D3005F2C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7BC2C7B2229CC3D3005F2C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7BC2C7B4229CC3D3005F2C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BC2C7BC229CC4D9005F2C92 /* CellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewController.swift; sourceTree = "<group>"; };
+		7BC2C7BE229CD84E005F2C92 /* item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = item.swift; sourceTree = "<group>"; };
+		7BE33B8622D44630001EADC7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		A80205BFEAEB36AED3368A32 /* Pods-Goal Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goal Tracker.release.xcconfig"; path = "Target Support Files/Pods-Goal Tracker/Pods-Goal Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		E991F3C91EBEE2B0AAFBA5B3 /* Pods-Goal Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Goal Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Goal Tracker/Pods-Goal Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7BC2C7A0229CC3CF005F2C92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72014B9DE0041CA69495CD0A /* Pods_Goal_Tracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B8BDE3122C9EB900081DE09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7BC2C7AC229CC3CF005F2C92 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B8BDE3222C9EBA20081DE09 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7BC2C7A8229CC3CF005F2C92 /* FirstViewController.swift */,
+				7B4B15A222D868A20093423F /* CalendarViewController.swift */,
+				7BC2C7AA229CC3CF005F2C92 /* SecondViewController.swift */,
+				7B73B43822AC49EC00C47882 /* NewIdeaCreation.swift */,
+				7BC2C7BC229CC4D9005F2C92 /* CellViewController.swift */,
+				7B8BDE3322C9F58E0081DE09 /* SwipeTableViewController.swift */,
+				7B066F9722DB2D4400166091 /* DateHeader.swift */,
+				7BBA466822E16C7900A5BF46 /* CalendarSelectionViewModelContrast.swift */,
+				7BBA466A22E16D2000A5BF46 /* CalendarHandlerViewModel.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7BC2C79A229CC3CF005F2C92 = {
+			isa = PBXGroup;
+			children = (
+				7BC2C7A5229CC3CF005F2C92 /* Goal Tracker */,
+				7BC2C7A4229CC3CF005F2C92 /* Products */,
+				DB6EA80779859EDA8FA8B9C5 /* Pods */,
+				AB104BB77FFD06158D482073 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7BC2C7A4229CC3CF005F2C92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BC2C7A3229CC3CF005F2C92 /* Goal Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BC2C7A5229CC3CF005F2C92 /* Goal Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				7BC2C7A6229CC3CF005F2C92 /* AppDelegate.swift */,
+				7B8BDE3222C9EBA20081DE09 /* Controller */,
+				7B8BDE3122C9EB900081DE09 /* View */,
+				7BC2C7C1229CD87B005F2C92 /* Data Model */,
+				7BC2C7AF229CC3D3005F2C92 /* Assets.xcassets */,
+				7BC2C7B1229CC3D3005F2C92 /* LaunchScreen.storyboard */,
+				7BC2C7B4229CC3D3005F2C92 /* Info.plist */,
+			);
+			path = "Goal Tracker";
+			sourceTree = "<group>";
+		};
+		7BC2C7C1229CD87B005F2C92 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BC2C7BE229CD84E005F2C92 /* item.swift */,
+				7BE33B8622D44630001EADC7 /* CollectionViewCell.swift */,
+				7B4B15A822D8E5570093423F /* DateCell.swift */,
+				7B3F8C4622DF07FA009F5DBE /* DateRangePickerTableViewCell.swift */,
+				7BBA466C22E16EA300A5BF46 /* DateFormatter Extension.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		AB104BB77FFD06158D482073 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C5D322DAEA5E381107372EE /* Pods_Goal_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB6EA80779859EDA8FA8B9C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E991F3C91EBEE2B0AAFBA5B3 /* Pods-Goal Tracker.debug.xcconfig */,
+				A80205BFEAEB36AED3368A32 /* Pods-Goal Tracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7BC2C7A2229CC3CF005F2C92 /* Goal Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BC2C7B7229CC3D3005F2C92 /* Build configuration list for PBXNativeTarget "Goal Tracker" */;
+			buildPhases = (
+				B34554FBFD68D33A33E55B9B /* [CP] Check Pods Manifest.lock */,
+				7BC2C79F229CC3CF005F2C92 /* Sources */,
+				7BC2C7A0229CC3CF005F2C92 /* Frameworks */,
+				7BC2C7A1229CC3CF005F2C92 /* Resources */,
+				9287752BB535D60C817044A8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Goal Tracker";
+			productName = "Goal Tracker";
+			productReference = 7BC2C7A3229CC3CF005F2C92 /* Goal Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7BC2C79B229CC3CF005F2C92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Sam;
+				TargetAttributes = {
+					7BC2C7A2229CC3CF005F2C92 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 7BC2C79E229CC3CF005F2C92 /* Build configuration list for PBXProject "Goal Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7BC2C79A229CC3CF005F2C92;
+			productRefGroup = 7BC2C7A4229CC3CF005F2C92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7BC2C7A2229CC3CF005F2C92 /* Goal Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7BC2C7A1229CC3CF005F2C92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BC2C7B3229CC3D3005F2C92 /* LaunchScreen.storyboard in Resources */,
+				7BC2C7B0229CC3D3005F2C92 /* Assets.xcassets in Resources */,
+				7BC2C7AE229CC3CF005F2C92 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9287752BB535D60C817044A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Goal Tracker/Pods-Goal Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/DSColorPicker/DSColorPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DSColorPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Goal Tracker/Pods-Goal Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B34554FBFD68D33A33E55B9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Goal Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7BC2C79F229CC3CF005F2C92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BBA466922E16C7900A5BF46 /* CalendarSelectionViewModelContrast.swift in Sources */,
+				7BC2C7AB229CC3CF005F2C92 /* SecondViewController.swift in Sources */,
+				7B4B15A922D8E5570093423F /* DateCell.swift in Sources */,
+				7BC2C7A7229CC3CF005F2C92 /* AppDelegate.swift in Sources */,
+				7BE33B8822D44630001EADC7 /* CollectionViewCell.swift in Sources */,
+				7BC2C7BF229CD84E005F2C92 /* item.swift in Sources */,
+				7B8BDE3422C9F58E0081DE09 /* SwipeTableViewController.swift in Sources */,
+				7BC2C7BD229CC4D9005F2C92 /* CellViewController.swift in Sources */,
+				7B4B15A322D868A20093423F /* CalendarViewController.swift in Sources */,
+				7B73B43922AC49EC00C47882 /* NewIdeaCreation.swift in Sources */,
+				7BBA466D22E16EA300A5BF46 /* DateFormatter Extension.swift in Sources */,
+				7B3F8C4722DF07FA009F5DBE /* DateRangePickerTableViewCell.swift in Sources */,
+				7B066F9822DB2D4400166091 /* DateHeader.swift in Sources */,
+				7BC2C7A9229CC3CF005F2C92 /* FirstViewController.swift in Sources */,
+				7BBA466B22E16D2000A5BF46 /* CalendarHandlerViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7BC2C7AC229CC3CF005F2C92 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC2C7AD229CC3CF005F2C92 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7BC2C7B1229CC3D3005F2C92 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC2C7B2229CC3D3005F2C92 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7BC2C7B5229CC3D3005F2C92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7BC2C7B6229CC3D3005F2C92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7BC2C7B8229CC3D3005F2C92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E991F3C91EBEE2B0AAFBA5B3 /* Pods-Goal Tracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L24TP8WC3G;
+				INFOPLIST_FILE = "Goal Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sammmy.Goal-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7BC2C7B9229CC3D3005F2C92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A80205BFEAEB36AED3368A32 /* Pods-Goal Tracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L24TP8WC3G;
+				INFOPLIST_FILE = "Goal Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sammmy.Goal-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7BC2C79E229CC3CF005F2C92 /* Build configuration list for PBXProject "Goal Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC2C7B5229CC3D3005F2C92 /* Debug */,
+				7BC2C7B6229CC3D3005F2C92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BC2C7B7229CC3D3005F2C92 /* Build configuration list for PBXNativeTarget "Goal Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC2C7B8229CC3D3005F2C92 /* Debug */,
+				7BC2C7B9229CC3D3005F2C92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7BC2C79B229CC3CF005F2C92 /* Project object */;
+}
