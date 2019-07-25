@@ -55,33 +55,32 @@ class NewIdeaCreation: UITableViewController {
         
         nameTextField.becomeFirstResponder()
 //        tableView.register(UINib.init(nibName: "MyCustomTableViewCell", bundle: nil), forCellReuseIdentifier: "daysCell")
-
+        
         
         }
     
     
-    //Date Selection Method Data Source Method
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "daysCell") as! DateRangePickerTableViewCell
-            configureChallengeFieldCell(cell)
-        return cell
-        
+    //Date Selection Method Data Source Method (use another way to do TableView
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
 //
-//        if let calendarCell = cell as? DateRangePickerTableViewCell { configureChallengeFieldCell(calendarCell)
-//        } else {
-//            print("Can't get that cell")
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 10
+//    }
+//
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        var cell = tableView.dequeueReusableCell(withIdentifier: "daysCell", for: indexPath)
+//        if let rangePickerCell = cell as? DateRangePickerTableViewCell {
+//
+//        configureChallengeFieldCell(rangePickerCell)
 //        }
-            }
+//
+//        return cell
+//
+//            }
     
 
     

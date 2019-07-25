@@ -17,6 +17,8 @@
 		7BBA466922E16C7900A5BF46 /* CalendarSelectionViewModelContrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA466822E16C7900A5BF46 /* CalendarSelectionViewModelContrast.swift */; };
 		7BBA466B22E16D2000A5BF46 /* CalendarHandlerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA466A22E16D2000A5BF46 /* CalendarHandlerViewModel.swift */; };
 		7BBA466D22E16EA300A5BF46 /* DateFormatter Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA466C22E16EA300A5BF46 /* DateFormatter Extension.swift */; };
+		7BBF340622E9C41B00347641 /* GoalNameFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF340522E9C41B00347641 /* GoalNameFieldTableViewCell.swift */; };
+		7BBF340822E9CDF200347641 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBF340722E9CDF200347641 /* UnderlinedTextField.swift */; };
 		7BC2C7A7229CC3CF005F2C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2C7A6229CC3CF005F2C92 /* AppDelegate.swift */; };
 		7BC2C7A9229CC3CF005F2C92 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2C7A8229CC3CF005F2C92 /* FirstViewController.swift */; };
 		7BC2C7AB229CC3CF005F2C92 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC2C7AA229CC3CF005F2C92 /* SecondViewController.swift */; };
@@ -39,6 +41,8 @@
 		7BBA466822E16C7900A5BF46 /* CalendarSelectionViewModelContrast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelectionViewModelContrast.swift; sourceTree = "<group>"; };
 		7BBA466A22E16D2000A5BF46 /* CalendarHandlerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHandlerViewModel.swift; sourceTree = "<group>"; };
 		7BBA466C22E16EA300A5BF46 /* DateFormatter Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter Extension.swift"; sourceTree = "<group>"; };
+		7BBF340522E9C41B00347641 /* GoalNameFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalNameFieldTableViewCell.swift; sourceTree = "<group>"; };
+		7BBF340722E9CDF200347641 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		7BC2C7A3229CC3CF005F2C92 /* Goal Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Goal Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC2C7A6229CC3CF005F2C92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BC2C7A8229CC3CF005F2C92 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				7BC2C7AC229CC3CF005F2C92 /* Main.storyboard */,
+				7BBF340522E9C41B00347641 /* GoalNameFieldTableViewCell.swift */,
+				7BBF340722E9CDF200347641 /* UnderlinedTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 				7BC2C7AB229CC3CF005F2C92 /* SecondViewController.swift in Sources */,
 				7B4B15A922D8E5570093423F /* DateCell.swift in Sources */,
 				7BC2C7A7229CC3CF005F2C92 /* AppDelegate.swift in Sources */,
+				7BBF340822E9CDF200347641 /* UnderlinedTextField.swift in Sources */,
 				7BE33B8822D44630001EADC7 /* CollectionViewCell.swift in Sources */,
 				7BC2C7BF229CD84E005F2C92 /* item.swift in Sources */,
 				7B8BDE3422C9F58E0081DE09 /* SwipeTableViewController.swift in Sources */,
@@ -293,6 +300,7 @@
 				7B73B43922AC49EC00C47882 /* NewIdeaCreation.swift in Sources */,
 				7BBA466D22E16EA300A5BF46 /* DateFormatter Extension.swift in Sources */,
 				7B3F8C4722DF07FA009F5DBE /* DateRangePickerTableViewCell.swift in Sources */,
+				7BBF340622E9C41B00347641 /* GoalNameFieldTableViewCell.swift in Sources */,
 				7B066F9822DB2D4400166091 /* DateHeader.swift in Sources */,
 				7BC2C7A9229CC3CF005F2C92 /* FirstViewController.swift in Sources */,
 				7BBA466B22E16D2000A5BF46 /* CalendarHandlerViewModel.swift in Sources */,
