@@ -12,5 +12,7 @@ pod 'DSColorPicker'
 pod 'SwipeCellKit'
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 pod 'JTAppleCalendar'
+pod 'PickerViewCell'
+
 
 end

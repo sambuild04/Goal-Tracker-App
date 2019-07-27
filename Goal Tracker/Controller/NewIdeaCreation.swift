@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import DSColorPicker
+import PickerViewCell
 
 
 protocol AddItemDelegate {
@@ -29,10 +30,12 @@ class NewIdeaCreation: UITableViewController {
     
     @IBOutlet weak var fromDateLabel: UILabel!
     
+    
     @IBOutlet weak var slider: UISlider!
     
     @IBOutlet weak var nameTextField: UITextField!
     
+        
     @IBAction func sliderChange(_ sender: Any) {
         
 //        print("\(colorArray[Int(slider.value)])")
@@ -82,7 +85,36 @@ class NewIdeaCreation: UITableViewController {
 //
 //            }
     
-
+    fileprivate lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.long
+        formatter.timeStyle = DateFormatter.Style.none
+        return formatter
+    }()
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let cell = tableView.cellForRow(at: indexPath) as? DatePickerTableViewCell {
+            cell.delegate = self
+            if !cell.isFirstResponder {
+                _ = cell.becomeFirstResponder()
+            }
+        }
+//        } else if let cell = tableView.cellForRow(at: indexPath) as? PickerTableViewCell {
+//            cell.delegate = self
+//            cell.dataSource = self
+//            if !cell.isFirstResponder {
+//                _ = cell.becomeFirstResponder()
+//            }
+//        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        if touch?.view == self.view {
+            self.view.resignFirstResponder()
+        }
+    }
     
     
     //function to store and display the Name Field
@@ -106,20 +138,53 @@ class NewIdeaCreation: UITableViewController {
         return date
     }
     
-    private func configureChallengeFieldCell(_ cell:DateRangePickerTableViewCell) {
-        cell.fromDateLabel.text = calendarHandlerViewModel.getFirstDateText() ?? "--"
-    }
+//    private func configureChallengeFieldCell(_ cell:DateRangePickerTableViewCell) {
+//        cell.fromDateLabel.text = calendarHandlerViewModel.getFirstDateText() ?? "--"
+//    }
 
 }
 
-extension NewIdeaCreation: AddDateRange {
+//extension NewIdeaCreation: AddDateRange {
+//
+//    func addDate(_ dateSelected: [Date]) {
+////        let dateString = date2String(dateSelected)
+//        calendarHandlerViewModel.setDays(daysDates)
+////        fromDateLabel.text = dateString
+//        tableView.reloadData()
+//        print("Date Added")
+//    }
+//}
 
-    func addDate(_ dateSelected: [Date]) {
-//        let dateString = date2String(dateSelected)
-        calendarHandlerViewModel.setDays(daysDates)
-//        fromDateLabel.text = dateString
-        tableView.reloadData()
-        print("Date Added")
+
+extension NewIdeaCreation: DatePickerTableCellDelegate {
+    
+    func onDateChange(_ sender: UIDatePicker, cell: DatePickerTableViewCell) {
+        fromDateLabel.text = dateFormatter.string(from: sender.date)
     }
+    
+    func onDatePickerOpen(_ cell: DatePickerTableViewCell) {
+        fromDateLabel.text = fromDateLabel.text!.isEmpty ? dateFormatter.string(from: Date()) : fromDateLabel.text
+        fromDateLabel.textColor = UIColor.red
+    }
+    
+    func onDatePickerClose(_ cell: DatePickerTableViewCell) {
+        fromDateLabel.textColor = UIColor.gray
+    }
+    
 }
+
+// MARK: - PickerTableCellDataSource
+
+extension NewIdeaCreation: PickerTableCellDataSource {
+    
+    public func numberOfComponents(in pickerView: UIPickerView, forCell cell: PickerTableViewCell) -> Int {
+        return 2
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int, forCell cell: PickerTableViewCell) -> Int {
+        return 10
+    }
+    
+}
+
 

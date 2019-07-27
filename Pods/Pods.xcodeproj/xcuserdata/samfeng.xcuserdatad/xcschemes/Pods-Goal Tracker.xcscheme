@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C2EFED37FDD2DA3FBFBFB5EFA141330D"
+               BlueprintIdentifier = "F7462854CFBF5B7749FABA1DC6BF224D"
                BuildableName = "Pods_Goal_Tracker.framework"
                BlueprintName = "Pods-Goal Tracker"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2EFED37FDD2DA3FBFBFB5EFA141330D"
+            BlueprintIdentifier = "F7462854CFBF5B7749FABA1DC6BF224D"
             BuildableName = "Pods_Goal_Tracker.framework"
             BlueprintName = "Pods-Goal Tracker"
             ReferencedContainer = "container:Pods.xcodeproj">
