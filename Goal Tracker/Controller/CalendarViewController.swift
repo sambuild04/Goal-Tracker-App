@@ -10,13 +10,7 @@ import Foundation
 import UIKit
 
 import JTAppleCalendar
-
-
-//Pass Date Range Selection Delegate
-protocol AddDateRange: class {
-    func addDate(_ dateSelected: [Date])
-}
-
+import RealmSwift
 
 
 class CalendarViewController: UIViewController {
@@ -30,12 +24,17 @@ class CalendarViewController: UIViewController {
 
     @IBOutlet weak var selectedButton: UIButton!
     
-    
-    var delegate: AddDateRange?
-    
+        
     var numberOfRows = 6
     
     var selectedDays: [Date]?
+    
+    var calendarDataSource: [String:String] = [:]
+    var formatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy"
+        return formatter
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +49,9 @@ class CalendarViewController: UIViewController {
         let panGensture = UILongPressGestureRecognizer(target: self, action: #selector(didStartRangeSelecting(gesture:)))
         panGensture.minimumPressDuration = 0.5
         calendarView.addGestureRecognizer(panGensture)
+        
+        populateDataSource()
+
 
     }
     
@@ -81,6 +83,18 @@ class CalendarViewController: UIViewController {
         calendarView.viewWillTransition(to: .zero, with: coordinator, anchorDate: visibleDates.monthDates.first?.date)
     }
     
+    func populateDataSource() {
+        // You can get the data from a server.
+        // Then convert that data into a form that can be used by the calendar.
+        calendarDataSource = [
+            "07-Jan-2018": "SomeData",
+            "15-Jan-2018": "SomeMoreData",
+            "15-Feb-2018": "MoreData",
+            "21-Feb-2018": "onlyData",
+        ]
+        // update the calendar
+        calendarView.reloadData()
+    }
     
     
     func configureCell(view: JTAppleCell?, cellState: CellState) {
@@ -89,6 +103,8 @@ class CalendarViewController: UIViewController {
         //print(cell.dateLabel.text) print out: Optional("date")
         handleCellTextColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
+        handleCellEvents(cell: cell, cellState: cellState)
+        print(cell.dateLabel.text!)
 
     }
     
@@ -98,6 +114,16 @@ class CalendarViewController: UIViewController {
             cell.dateLabel.textColor = UIColor.black
         } else {
             cell.dateLabel.textColor = UIColor.gray
+        }
+    }
+    
+    
+    func handleCellEvents(cell: DateCell, cellState: CellState) {
+        let dateString = formatter.string(from: cellState.date)
+        if calendarDataSource[dateString] == nil {
+            cell.dotView.isHidden = true
+        } else {
+            cell.dotView.isHidden = false
         }
     }
     
@@ -125,9 +151,9 @@ class CalendarViewController: UIViewController {
     @objc func didStartRangeSelecting(gesture: UILongPressGestureRecognizer) {
         let point = gesture.location(in: gesture.view!)
         let rangeSelectedDates = calendarView.selectedDates
-        
+
         guard let cellState = calendarView.cellStatus(at: point) else { return }
-        
+
         if !rangeSelectedDates.contains(cellState.date) {
             let dateRange = calendarView.generateDateRange(from: rangeSelectedDates.first ?? cellState.date, to: cellState.date)
             calendarView.selectDates(dateRange, keepSelectionIfMultiSelectionAllowed: true)
@@ -156,7 +182,6 @@ class CalendarViewController: UIViewController {
 //        formatter.dateFormat = "yyyy MM dd"
 //        let startDate = formatter.date(from: "2018 01 01")!
 //        print(startDate)
-        delegate?.addDate(calendarView.selectedDates)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -171,33 +196,41 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
     
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "yyyy MM dd"
-        
-        let startDate = formatter.date(from: "2018 01 01")!
+        let startDate = formatter.date(from: "01-jan-2018")!
         let endDate = Date()
-
+        return ConfigurationParameters(startDate: startDate, endDate: endDate)
         
-        let parameters = ConfigurationParameters(startDate: startDate,
-                                                 endDate: endDate,
-                                                 numberOfRows: 1,
-                                                 generateInDates: .forFirstMonthOnly,
-                                                 generateOutDates: .off,
-                                                 hasStrictBoundaries: false)
-        
-        
-        if numberOfRows == 6 {
-            return ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: numberOfRows)
-        } else {
-            return ConfigurationParameters(startDate: startDate,
-                                           endDate: endDate,
-                                           numberOfRows: numberOfRows,
-                                           generateInDates: .forFirstMonthOnly,
-                                           generateOutDates: .off,
-                                           hasStrictBoundaries: false)
-        }
+//        let formatter = DateFormatter()
+//
+//        formatter.dateFormat = "yyyy MM dd"
+//
+//        let startDate = formatter.date(from: "2018 01 01")!
+//        let endDate = Date()
+//
+//
+//        let parameters = ConfigurationParameters(startDate: startDate,
+//                                                 endDate: endDate,
+//                                                 numberOfRows: 1,
+//                                                 generateInDates: .forFirstMonthOnly,
+//                                                 generateOutDates: .off,
+//                                                 hasStrictBoundaries: false)
+//
+//
+//        if numberOfRows == 6 {
+//            return ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: numberOfRows)
+//        } else {
+//            return ConfigurationParameters(startDate: startDate,
+//                                           endDate: endDate,
+//                                           numberOfRows: numberOfRows,
+//                                           generateInDates: .forFirstMonthOnly,
+//                                           generateOutDates: .off,
+//                                           hasStrictBoundaries: false)
+//        }
     }
+    
+
+
+
 }
 
 
@@ -246,4 +279,10 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         }
     }
 
+}
+
+extension CalendarViewController: AddDateDelegate {
+    func addDate(date: String) {
+        calendarDataSource.
+    }
 }

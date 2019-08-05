@@ -309,10 +309,10 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xsY-ap-cYS" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="20" y="71" width="334" height="350"/>
+                                <rect key="frame" x="20" y="71" width="334" height="450"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="KB8-yL-hsS"/>
+                                    <constraint firstAttribute="height" constant="450" id="KB8-yL-hsS"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="oRE-FU-JHJ">
                                     <size key="itemSize" width="81" height="78"/>
@@ -338,20 +338,36 @@
                                                     <rect key="frame" x="15.666666666666664" y="14" width="49.999999999999993" height="50"/>
                                                     <color key="backgroundColor" red="1" green="0.103811151" blue="0.27194726000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="5LV-pw-VPR"/>
-                                                        <constraint firstAttribute="width" constant="50" id="nQa-GW-9xO"/>
+                                                        <constraint firstAttribute="height" constant="50" id="BcK-0I-MBJ"/>
+                                                        <constraint firstAttribute="width" constant="50" id="Wpo-aX-xJv"/>
                                                     </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8v0-yv-wRw" userLabel="dotView">
+                                                    <rect key="frame" x="35.666666666666664" y="50" width="10" height="10"/>
+                                                    <color key="backgroundColor" red="1" green="0.103811151" blue="0.27194726000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="10" id="hsL-p8-JxZ"/>
+                                                        <constraint firstAttribute="height" constant="10" id="qRm-Xj-bKt"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="aAA-WN-Gsv" firstAttribute="centerY" secondItem="hGC-pV-X0I" secondAttribute="centerY" id="51Z-zT-Pzs"/>
                                             <constraint firstItem="gEQ-zk-s9x" firstAttribute="centerY" secondItem="hGC-pV-X0I" secondAttribute="centerY" id="Hhm-Bg-Uae"/>
-                                            <constraint firstItem="aAA-WN-Gsv" firstAttribute="centerX" secondItem="hGC-pV-X0I" secondAttribute="centerX" id="LWI-So-kMA"/>
                                             <constraint firstItem="gEQ-zk-s9x" firstAttribute="centerX" secondItem="hGC-pV-X0I" secondAttribute="centerX" id="Ljk-gm-yQp"/>
+                                            <constraint firstItem="8v0-yv-wRw" firstAttribute="top" secondItem="hGC-pV-X0I" secondAttribute="top" constant="50" id="Rkh-RY-PY2"/>
+                                            <constraint firstItem="aAA-WN-Gsv" firstAttribute="centerY" secondItem="hGC-pV-X0I" secondAttribute="centerY" id="gDc-P2-PQq"/>
+                                            <constraint firstItem="8v0-yv-wRw" firstAttribute="centerX" secondItem="hGC-pV-X0I" secondAttribute="centerX" id="nXv-dq-Hnw"/>
+                                            <constraint firstItem="aAA-WN-Gsv" firstAttribute="centerX" secondItem="hGC-pV-X0I" secondAttribute="centerX" id="xkY-Dx-qkw"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="gEQ-zk-s9x" id="GJX-um-clK"/>
+                                            <outlet property="dotView" destination="8v0-yv-wRw" id="pmO-9R-wLb"/>
                                             <outlet property="selectedView" destination="aAA-WN-Gsv" id="AeF-ys-en5"/>
                                         </connections>
                                     </collectionViewCell>
@@ -382,11 +398,11 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrN-dK-eDm">
-                                <rect key="frame" x="20" y="421" width="334" height="180"/>
+                                <rect key="frame" x="20" y="521" width="334" height="80"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzu-dR-3Dn">
-                                <rect key="frame" x="148" y="375" width="79" height="46"/>
+                                <rect key="frame" x="148" y="456" width="79" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Selected">

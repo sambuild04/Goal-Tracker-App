@@ -14,5 +14,6 @@ class DateCell: JTAppleCell {
 
     @IBOutlet weak var selectedView: UIView!
     
+    @IBOutlet weak var dotView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
 }

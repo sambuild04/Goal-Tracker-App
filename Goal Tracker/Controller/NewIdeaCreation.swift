@@ -10,11 +10,17 @@ import UIKit
 import RealmSwift
 import DSColorPicker
 import PickerViewCell
+import UserNotifications
 
 
 protocol AddItemDelegate {
     func addItem(item: item)
 }
+
+protocol AddDateDelegate {
+    func addDate(date: String)
+}
+
 
 
 class NewIdeaCreation: UITableViewController {
@@ -23,7 +29,7 @@ class NewIdeaCreation: UITableViewController {
     
     let colorArray = [ 0x000000, 0xfe0000, 0xff7900, 0xffb900, 0xffde00, 0xfcff00, 0xd2ff00, 0x05c000, 0x00c0a7, 0x0600ff, 0x6700bf, 0x9500c0, 0xbf0199, 0xffffff ]
     
-    let daysDates: [Date] = []
+//    var daysDates: String = []
 
 
     var backgroundColor: Int?
@@ -47,6 +53,7 @@ class NewIdeaCreation: UITableViewController {
     
     var delegate: AddItemDelegate?
     
+    var dateDelegate: AddDateDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,33 +64,28 @@ class NewIdeaCreation: UITableViewController {
         super.viewDidLoad()
         
         nameTextField.becomeFirstResponder()
-//        tableView.register(UINib.init(nibName: "MyCustomTableViewCell", bundle: nil), forCellReuseIdentifier: "daysCell")
-        
         
         }
     
     
-    //Date Selection Method Data Source Method (use another way to do TableView
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
 //
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 10
-//    }
-//
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        var cell = tableView.dequeueReusableCell(withIdentifier: "daysCell", for: indexPath)
-//        if let rangePickerCell = cell as? DateRangePickerTableViewCell {
-//
-//        configureChallengeFieldCell(rangePickerCell)
-//        }
-//
-//        return cell
-//
+//        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+//            if settings.authorizationStatus != .authorized {
+//                let alertController = UIAlertController(title: "Notification was disabled", message: "Turn on your notifications.", preferredStyle: .alert)
+//                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+//                    self.navigationController?.popViewController(animated: true)
+//                }))
+//                alertController.addAction(UIAlertAction(title: "Setting", style: .default, handler: { (action) in
+//                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+//                }))
+//                self.present(alertController, animated: true, completion: nil)
 //            }
+//        }
+//    }
+    
+    
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -98,23 +100,19 @@ class NewIdeaCreation: UITableViewController {
             cell.delegate = self
             if !cell.isFirstResponder {
                 _ = cell.becomeFirstResponder()
+                
+                //Deselection not working
+                self.tableView.deselectRow(at: indexPath, animated: true)
             }
         }
-//        } else if let cell = tableView.cellForRow(at: indexPath) as? PickerTableViewCell {
-//            cell.delegate = self
-//            cell.dataSource = self
-//            if !cell.isFirstResponder {
-//                _ = cell.becomeFirstResponder()
-//            }
-//        }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first
-        if touch?.view == self.view {
-            self.view.resignFirstResponder()
-        }
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let touch = touches.first
+//        if touch?.view == self.view {
+//            self.view.resignFirstResponder()
+//        }
+//    }
     
     
     //function to store and display the Name Field
@@ -123,8 +121,11 @@ class NewIdeaCreation: UITableViewController {
         
         ideaName.name = nameTextField.text ?? ""
         ideaName.color = String(colorArray[Int(slider.value)]) //Data Type?
+//        ideaName.date = days
         
         delegate?.addItem(item: ideaName)
+        
+//        dateDelegate?.addDate(date: ideaName.date)
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -138,28 +139,29 @@ class NewIdeaCreation: UITableViewController {
         return date
     }
     
-//    private func configureChallengeFieldCell(_ cell:DateRangePickerTableViewCell) {
-//        cell.fromDateLabel.text = calendarHandlerViewModel.getFirstDateText() ?? "--"
-//    }
 
 }
 
-//extension NewIdeaCreation: AddDateRange {
-//
-//    func addDate(_ dateSelected: [Date]) {
-////        let dateString = date2String(dateSelected)
-//        calendarHandlerViewModel.setDays(daysDates)
-////        fromDateLabel.text = dateString
-//        tableView.reloadData()
-//        print("Date Added")
-//    }
-//}
 
+//Date Picker Configuration
 
 extension NewIdeaCreation: DatePickerTableCellDelegate {
     
     func onDateChange(_ sender: UIDatePicker, cell: DatePickerTableViewCell) {
-        fromDateLabel.text = dateFormatter.string(from: sender.date)
+        let selectedDate = sender.date
+        print(selectedDate)
+        
+        let  dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let strDate = dateFormatter.string(from: selectedDate)
+        fromDateLabel?.text = strDate
+//        daysDates.append(strDate)
+        print(strDate)
+        
+        scheduleNotification(at: selectedDate)
+
+
     }
     
     func onDatePickerOpen(_ cell: DatePickerTableViewCell) {
@@ -169,6 +171,35 @@ extension NewIdeaCreation: DatePickerTableCellDelegate {
     
     func onDatePickerClose(_ cell: DatePickerTableViewCell) {
         fromDateLabel.textColor = UIColor.gray
+    }
+    
+    
+    func scheduleNotification(at date: Date) {
+        
+        let calendar = Calendar(identifier: .chinese)
+        let components = calendar.dateComponents(in: .current, from: date)
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+        
+        //Configure
+        let content = UNMutableNotificationContent()
+        content.title = "You have a new idea now!"
+        content.title = NSString.localizedUserNotificationString(forKey: "Calendar Title", arguments: nil)
+        content.subtitle = "This is cool"
+        content.body = "Remember to finish your reading today"
+        content.sound = UNNotificationSound.default
+        content.badge = 0
+        
+        let request = UNNotificationRequest(identifier: "calendar", content: content, trigger: trigger)
+        
+        // Schedule the request with the system.
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Failed to add request to notification center. error:\(error)")
+            }
+        }
+        
     }
     
 }
