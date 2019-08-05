@@ -30,6 +30,8 @@ class CalendarViewController: UIViewController {
     var selectedDays: [Date]?
     
     var calendarDataSource: [String:String] = [:]
+//    var calendarDataSource: [String] = []
+
     var formatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MMM-yyyy"
@@ -92,6 +94,7 @@ class CalendarViewController: UIViewController {
             "15-Feb-2018": "MoreData",
             "21-Feb-2018": "onlyData",
         ]
+        
         // update the calendar
         calendarView.reloadData()
     }
@@ -282,7 +285,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
 }
 
 extension CalendarViewController: AddDateDelegate {
-    func addDate(date: String) {
-        calendarDataSource.
+    func addDate(date: String, descr: String) {
+        calendarDataSource.updateValue(date, forKey: descr)
     }
 }

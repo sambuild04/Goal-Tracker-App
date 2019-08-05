@@ -18,7 +18,7 @@ protocol AddItemDelegate {
 }
 
 protocol AddDateDelegate {
-    func addDate(date: String)
+    func addDate(date: String, descr: String)
 }
 
 
@@ -29,7 +29,7 @@ class NewIdeaCreation: UITableViewController {
     
     let colorArray = [ 0x000000, 0xfe0000, 0xff7900, 0xffb900, 0xffde00, 0xfcff00, 0xd2ff00, 0x05c000, 0x00c0a7, 0x0600ff, 0x6700bf, 0x9500c0, 0xbf0199, 0xffffff ]
     
-//    var daysDates: String = []
+    var daysDates: [String:String] = [:]
 
 
     var backgroundColor: Int?
@@ -115,7 +115,7 @@ class NewIdeaCreation: UITableViewController {
 //    }
     
     
-    //function to store and display the Name Field
+    //function to store and display the Name Field on the TableView
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         let ideaName = item()
         
@@ -125,7 +125,7 @@ class NewIdeaCreation: UITableViewController {
         
         delegate?.addItem(item: ideaName)
         
-//        dateDelegate?.addDate(date: ideaName.date)
+        dateDelegate?.addDate(date: daysDates, descr: nameTextField)
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -159,9 +159,10 @@ extension NewIdeaCreation: DatePickerTableCellDelegate {
 //        daysDates.append(strDate)
         print(strDate)
         
+        
+        
         scheduleNotification(at: selectedDate)
-
-
+        daysDates.updateValue(selectedDate, forKey: nameTextField)
     }
     
     func onDatePickerOpen(_ cell: DatePickerTableViewCell) {
