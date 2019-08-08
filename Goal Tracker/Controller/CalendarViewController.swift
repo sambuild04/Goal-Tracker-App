@@ -38,9 +38,15 @@ class CalendarViewController: UIViewController {
         return formatter
     }
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Access value stored by the singleton in NewIdeaCreation
+        let dateItem2 = Items.sharedInstance.array
+
+        print("dateItem2 is now \(dateItem2)")
         calendarView.scrollDirection = .horizontal
         calendarView.scrollingMode   = .stopAtEachCalendarFrame
         calendarView.showsHorizontalScrollIndicator = false
@@ -52,10 +58,19 @@ class CalendarViewController: UIViewController {
         panGensture.minimumPressDuration = 0.5
         calendarView.addGestureRecognizer(panGensture)
         
+        calendarDataSource.updateValue("newAddedData", forKey: dateItem2)
+        print("calendar Datasource now has \(calendarDataSource)")
+        
         populateDataSource()
 
 
     }
+    
+//    func goToNewIdea(){
+//        let newIdea = NewIdeaCreation()
+//        newIdea.dateDelegate = self
+//        present(newIdea,animated: true, completion: nil)
+//    }
     
     @IBAction func toggle(_ sender: Any) {
         
@@ -88,13 +103,14 @@ class CalendarViewController: UIViewController {
     func populateDataSource() {
         // You can get the data from a server.
         // Then convert that data into a form that can be used by the calendar.
-        calendarDataSource = [
-            "07-Jan-2018": "SomeData",
-            "15-Jan-2018": "SomeMoreData",
-            "15-Feb-2018": "MoreData",
-            "21-Feb-2018": "onlyData",
-        ]
-        
+//        calendarDataSource = [
+//            "07-Jan-2018": "SomeData",
+//            "15-Jan-2018": "SomeMoreData",
+//            "15-Feb-2018": "MoreData",
+//            "21-Feb-2018": "onlyData",
+//        ]
+
+        print("Now the calendarDataSource has \(calendarDataSource)")
         // update the calendar
         calendarView.reloadData()
     }
@@ -177,16 +193,7 @@ class CalendarViewController: UIViewController {
     }
     
     
-    //Add Date Range Button
-    @IBAction func dateSelectionButton(_ sender: UIButton) {
-        
-//        let formatter = DateFormatter()
-//
-//        formatter.dateFormat = "yyyy MM dd"
-//        let startDate = formatter.date(from: "2018 01 01")!
-//        print(startDate)
-        self.navigationController?.popViewController(animated: true)
-    }
+
     
 }
 
@@ -284,8 +291,11 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
 
 }
 
-extension CalendarViewController: AddDateDelegate {
-    func addDate(date: String, descr: String) {
-        calendarDataSource.updateValue(date, forKey: descr)
-    }
-}
+//extension CalendarViewController: AddDateDelegate {
+//    func addDate(date: String, descr: String) {
+//
+//        calendarDataSource.updateValue(descr, forKey: date)
+//        print("The calendarDataSource are now \(calendarDataSource)")
+//        calendarView.reloadData()
+//    }
+//}

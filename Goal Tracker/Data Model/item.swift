@@ -13,7 +13,7 @@ class item: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var done: Bool = false
     @objc dynamic var color: String = ""
-    @objc dynamic var date: [String:String] = [:]
+    @objc dynamic var date: String = ""
 
 }
 

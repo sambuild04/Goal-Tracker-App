@@ -17,9 +17,9 @@ protocol AddItemDelegate {
     func addItem(item: item)
 }
 
-protocol AddDateDelegate {
-    func addDate(date: String, descr: String)
-}
+//protocol AddDateDelegate {
+//    func addDate(date: String, descr: String)
+//}
 
 
 
@@ -29,7 +29,7 @@ class NewIdeaCreation: UITableViewController {
     
     let colorArray = [ 0x000000, 0xfe0000, 0xff7900, 0xffb900, 0xffde00, 0xfcff00, 0xd2ff00, 0x05c000, 0x00c0a7, 0x0600ff, 0x6700bf, 0x9500c0, 0xbf0199, 0xffffff ]
     
-    var daysDates: [String:String] = [:]
+    var daysDates: String = ""
 
 
     var backgroundColor: Int?
@@ -53,7 +53,7 @@ class NewIdeaCreation: UITableViewController {
     
     var delegate: AddItemDelegate?
     
-    var dateDelegate: AddDateDelegate?
+//    var dateDelegate: AddDateDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -117,33 +117,40 @@ class NewIdeaCreation: UITableViewController {
     
     //function to store and display the Name Field on the TableView
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        
+        //store value in a Singleton
+        Items.sharedInstance.array.append(daysDates)
+
+        print("After you click done, the Items.sharedInstance.array now has \(Items.sharedInstance.array)")
         let ideaName = item()
+        
         
         ideaName.name = nameTextField.text ?? ""
         ideaName.color = String(colorArray[Int(slider.value)]) //Data Type?
 //        ideaName.date = days
+        ideaName.date = daysDates
         
         delegate?.addItem(item: ideaName)
         
-        dateDelegate?.addDate(date: daysDates, descr: nameTextField)
-        
+//        dateDelegate?.addDate(date: daysDates, descr: nameTextField?.text ?? "")
+        print("The current ideaName has: \(ideaName)")
         self.navigationController?.popViewController(animated: true)
     }
     
     // a function that can convert Date type to String type
-    func date2String(_ date:Date, dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale.init(identifier: "zh_CN")
-        formatter.dateFormat = dateFormat
-        let date = formatter.string(from: date)
-        return date
-    }
+//    func date2String(_ date:Date, dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> String {
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale.init(identifier: "zh_CN")
+//        formatter.dateFormat = dateFormat
+//        let date = formatter.string(from: date)
+//        return date
+//    }
     
 
 }
 
 
-//Date Picker Configuration
+//MARK: - Date Picker Configuration
 
 extension NewIdeaCreation: DatePickerTableCellDelegate {
     
@@ -153,16 +160,16 @@ extension NewIdeaCreation: DatePickerTableCellDelegate {
         
         let  dateFormatter = DateFormatter()
         
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "dd-MMM-yyyy"
         let strDate = dateFormatter.string(from: selectedDate)
         fromDateLabel?.text = strDate
-//        daysDates.append(strDate)
         print(strDate)
         
-        
+//        let dateVar = Items.sharedInstance.array
+
         
         scheduleNotification(at: selectedDate)
-        daysDates.updateValue(selectedDate, forKey: nameTextField)
+        daysDates = strDate
     }
     
     func onDatePickerOpen(_ cell: DatePickerTableViewCell) {

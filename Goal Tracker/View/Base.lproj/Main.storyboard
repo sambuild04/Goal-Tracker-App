@@ -408,9 +408,6 @@
                                 <state key="normal" title="Selected">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="dateSelectionButton:" destination="Dep-ZX-gjG" eventType="touchUpInside" id="hGB-dM-a3f"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
