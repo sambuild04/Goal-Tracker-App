@@ -103,7 +103,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qf-0X-IUx" userLabel="*">
                                                                     <rect key="frame" x="59.666666666666671" y="0.0" width="7.6666666666666714" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" red="1" green="0.103811151" blue="0.27194726000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -301,7 +301,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnM-g3-zXZ" userLabel="Toggle">
-                                <rect key="frame" x="308" y="88" width="47" height="30"/>
+                                <rect key="frame" x="280.66666666666669" y="88" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Toggle"/>
                                 <connections>
@@ -309,8 +309,8 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xsY-ap-cYS" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="20" y="71" width="334" height="450"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="70" y="71" width="284" height="450"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="KB8-yL-hsS"/>
                                 </constraints>
@@ -336,7 +336,7 @@
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAA-WN-Gsv">
                                                     <rect key="frame" x="15.666666666666664" y="14" width="49.999999999999993" height="50"/>
-                                                    <color key="backgroundColor" red="1" green="0.103811151" blue="0.27194726000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="BcK-0I-MBJ"/>
                                                         <constraint firstAttribute="width" constant="50" id="Wpo-aX-xJv"/>
@@ -373,17 +373,17 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DateHeader" id="P3V-0R-W0f" customClass="DateHeader" customModule="Goal_Tracker" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="284" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MonthLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5K-Jv-lOr">
-                                            <rect key="frame" x="121.66666666666666" y="14.666666666666664" width="90.666666666666657" height="21"/>
+                                            <rect key="frame" x="96.666666666666657" y="14.666666666666664" width="90.666666666666657" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="A5K-Jv-lOr" firstAttribute="centerY" secondItem="P3V-0R-W0f" secondAttribute="centerY" id="1bj-Ap-hu3"/>
                                         <constraint firstItem="A5K-Jv-lOr" firstAttribute="centerX" secondItem="P3V-0R-W0f" secondAttribute="centerX" id="RoR-ku-baz"/>
@@ -397,28 +397,65 @@
                                     <outlet property="ibCalendarDelegate" destination="Dep-ZX-gjG" id="KVm-Pl-9AP"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrN-dK-eDm">
-                                <rect key="frame" x="20" y="521" width="334" height="80"/>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzu-dR-3Dn">
-                                <rect key="frame" x="148" y="456" width="79" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6C-d0-mUJ">
+                                <rect key="frame" x="20" y="70" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2r8-m1-d06" userLabel="Week Count">
+                                <rect key="frame" x="20" y="121" width="50" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ftS-T0-BcD">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeekCountCell" id="qtX-4W-kV1" userLabel="WeekCountCell" customClass="WeekCountCell" customModule="Goal_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sY-39-CY1" userLabel="Count Label">
+                                                    <rect key="frame" x="21" y="14.666666666666664" width="8" height="21"/>
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="3sY-39-CY1" firstAttribute="centerY" secondItem="qtX-4W-kV1" secondAttribute="centerY" id="DyL-jB-Wcg"/>
+                                            <constraint firstItem="3sY-39-CY1" firstAttribute="centerX" secondItem="qtX-4W-kV1" secondAttribute="centerX" id="Tqc-0c-Cjv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="countLabel" destination="3sY-39-CY1" id="FHD-ny-NmR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Dep-ZX-gjG" id="hTu-Qx-zfx"/>
+                                    <outlet property="delegate" destination="Dep-ZX-gjG" id="zpF-Cy-oLh"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="IV9-P9-YQR" firstAttribute="bottom" secondItem="wrN-dK-eDm" secondAttribute="bottom" constant="128" id="396-Co-3ww"/>
-                            <constraint firstItem="wrN-dK-eDm" firstAttribute="top" secondItem="xsY-ap-cYS" secondAttribute="bottom" id="C0V-U0-BHf"/>
+                            <constraint firstItem="xsY-ap-cYS" firstAttribute="leading" secondItem="B6C-d0-mUJ" secondAttribute="trailing" id="J4U-L7-8Gd"/>
                             <constraint firstItem="IV9-P9-YQR" firstAttribute="trailing" secondItem="xsY-ap-cYS" secondAttribute="trailing" constant="21" id="K51-uZ-CvR"/>
-                            <constraint firstItem="xsY-ap-cYS" firstAttribute="leading" secondItem="IV9-P9-YQR" secondAttribute="leading" constant="20" id="OMc-x1-pes"/>
-                            <constraint firstItem="wrN-dK-eDm" firstAttribute="leading" secondItem="IV9-P9-YQR" secondAttribute="leading" constant="20" id="YhO-PN-cvY"/>
+                            <constraint firstItem="B6C-d0-mUJ" firstAttribute="leading" secondItem="IV9-P9-YQR" secondAttribute="leading" constant="20" id="NNS-K2-RbJ"/>
+                            <constraint firstItem="xsY-ap-cYS" firstAttribute="leading" secondItem="IV9-P9-YQR" secondAttribute="leading" constant="70" id="OMc-x1-pes"/>
+                            <constraint firstItem="B6C-d0-mUJ" firstAttribute="top" secondItem="IV9-P9-YQR" secondAttribute="top" constant="26" id="d9h-l9-Ff7"/>
                             <constraint firstItem="xsY-ap-cYS" firstAttribute="top" secondItem="IV9-P9-YQR" secondAttribute="top" constant="27" id="iaD-5j-S0V"/>
-                            <constraint firstItem="IV9-P9-YQR" firstAttribute="trailing" secondItem="wrN-dK-eDm" secondAttribute="trailing" constant="21" id="x9R-tw-LiY"/>
+                            <constraint firstItem="IV9-P9-YQR" firstAttribute="bottom" secondItem="B6C-d0-mUJ" secondAttribute="bottom" constant="609" id="ouE-Po-Jlc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IV9-P9-YQR"/>
                     </view>
@@ -426,12 +463,12 @@
                     <connections>
                         <outlet property="calendarView" destination="xsY-ap-cYS" id="7Mr-rN-Rga"/>
                         <outlet property="constraint" destination="KB8-yL-hsS" id="NwY-le-PaF"/>
-                        <outlet property="selectedButton" destination="xzu-dR-3Dn" id="uCt-TT-IEj"/>
+                        <outlet property="weekCount" destination="2r8-m1-d06" id="J8E-U6-o5A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCm-mx-z1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2554" y="746"/>
+            <point key="canvasLocation" x="2552.8000000000002" y="745.56650246305423"/>
         </scene>
         <!--Goals & Ideas-->
         <scene sceneID="ckM-7X-2Ze">

@@ -17,12 +17,15 @@ class CalendarViewController: UIViewController {
 
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    
+    @IBOutlet weak var weekCount: UICollectionView!
+    
+    
     let testCalendar = Calendar(identifier: .gregorian)
 
     
     @IBOutlet weak var constraint: NSLayoutConstraint!
 
-    @IBOutlet weak var selectedButton: UIButton!
     
         
     var numberOfRows = 6
@@ -30,7 +33,7 @@ class CalendarViewController: UIViewController {
     var selectedDays: [Date]?
     
     var calendarDataSource: [String:String] = [:]
-//    var calendarDataSource: [String] = []
+
 
     var formatter: DateFormatter {
         let formatter = DateFormatter()
@@ -43,7 +46,9 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Access value stored by the singleton in NewIdeaCreation
+        
+        
+    //Access value stored by the singleton in NewIdeaCreation
         let dateItem2 = Items.sharedInstance.array
 
         print("dateItem2 is now \(dateItem2)")
@@ -53,6 +58,13 @@ class CalendarViewController: UIViewController {
         
         calendarView.allowsMultipleSelection = true
         calendarView.isRangeSelectionUsed = true
+        
+//        self.calendarView.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
+//            self.setupViewsOfCalendar(from: visibleDates)
+//        }
+        
+        self.calendarView.scrollToDate(Date(),animateScroll: false)
+        self.calendarView.selectDates([ Date() ])
         
         let panGensture = UILongPressGestureRecognizer(target: self, action: #selector(didStartRangeSelecting(gesture:)))
         panGensture.minimumPressDuration = 0.5
@@ -66,11 +78,7 @@ class CalendarViewController: UIViewController {
 
     }
     
-//    func goToNewIdea(){
-//        let newIdea = NewIdeaCreation()
-//        newIdea.dateDelegate = self
-//        present(newIdea,animated: true, completion: nil)
-//    }
+
     
     @IBAction func toggle(_ sender: Any) {
         
@@ -117,6 +125,7 @@ class CalendarViewController: UIViewController {
     
     
     func configureCell(view: JTAppleCell?, cellState: CellState) {
+        
         guard let cell = view as? DateCell  else { return }
         cell.dateLabel.text = cellState.text
         //print(cell.dateLabel.text) print out: Optional("date")
@@ -192,9 +201,6 @@ class CalendarViewController: UIViewController {
         configureCell(view: cell, cellState: cellState)
     }
     
-    
-
-    
 }
 
 
@@ -202,51 +208,47 @@ class CalendarViewController: UIViewController {
 //Calendar Data Source Method
 extension CalendarViewController: JTAppleCalendarViewDataSource {
     
-
-    
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        
-        let startDate = formatter.date(from: "01-jan-2018")!
-        let endDate = Date()
-        return ConfigurationParameters(startDate: startDate, endDate: endDate)
-        
-//        let formatter = DateFormatter()
+//            let formatter = Formatter()
+//            formatter.dateFormat = "yyyy MM dd"
+//            formatter.timeZone = Calendar.current.timeZone
+//            formatter.locale = Calendar.current.locale
 //
-//        formatter.dateFormat = "yyyy MM dd"
+//            var dateComponent = DateComponents()
+//            dateComponent.year = 1
+////            let startDate = Date()
+//        let beginDate = formatter.string(from: Date())
+//        print(beginDate)
 //
-//        let startDate = formatter.date(from: "2018 01 01")!
+//        let startDate = formatter.date(from: "01-jan-2019")!
+//
+//
 //        let endDate = Date()
-//
-//
-//        let parameters = ConfigurationParameters(startDate: startDate,
-//                                                 endDate: endDate,
-//                                                 numberOfRows: 1,
-//                                                 generateInDates: .forFirstMonthOnly,
-//                                                 generateOutDates: .off,
-//                                                 hasStrictBoundaries: false)
-//
-//
-//        if numberOfRows == 6 {
-//            return ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: numberOfRows)
-//        } else {
-//            return ConfigurationParameters(startDate: startDate,
-//                                           endDate: endDate,
-//                                           numberOfRows: numberOfRows,
-//                                           generateInDates: .forFirstMonthOnly,
-//                                           generateOutDates: .off,
-//                                           hasStrictBoundaries: false)
-//        }
-    }
+//        return ConfigurationParameters(startDate: startDate, endDate: endDate)
+        
+        formatter.dateFormat = "yyy MM dd"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        
+        var dateComponent = DateComponents()
+        dateComponent.year = 1
+        let startDate = Date()
+        let endDate = Calendar.current.date(byAdding: dateComponent, to: startDate)
+        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate!, numberOfRows: 6, calendar: Calendar.current, generateInDates: .forFirstMonthOnly, generateOutDates: .off, firstDayOfWeek: .sunday, hasStrictBoundaries: true)
+        
+        
+        return parameters
+        
+            }
     
-
-
-
 }
 
 
 //Calendar Delegate Method
 extension CalendarViewController: JTAppleCalendarViewDelegate {
+    
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+        
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         
@@ -263,13 +265,19 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
 
     }
     
+    func calendar(_ calendar: JTAppleCalendarView, willScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        let date: Date = visibleDates.monthDates.first!.date
+        let weekNumber = Calendar.current.component(.weekOfYear, from: date)
+        weekCount.scrollToItem(at: IndexPath(item: weekNumber - 1, section: 0), at: .top, animated: true)
+    }
+    
     
     func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
         
         let formatter = DateFormatter()// Declare this outside, to avoid instancing this heavy class multiple times.
         
 
-        formatter.dateFormat = "MMM"
+        formatter.dateFormat = "MMM-yyyy"
         
         let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "DateHeader", for: indexPath) as! DateHeader
         header.monthTitle.text = formatter.string(from: range.start)
@@ -299,3 +307,15 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
 //        calendarView.reloadData()
 //    }
 //}
+
+extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 55
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeekCountCell", for: indexPath) as! WeekCountCell
+        cell.countLabel?.text = "\(indexPath.item + 1)"
+        return cell
+    }
+}
